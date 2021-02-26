@@ -42,6 +42,13 @@ void DE1SoC_SevenSeg_SetSingle(unsigned int display, unsigned int value) {
     // bits to enable the correct segments on the seven segment display to
     // illuminate. Use the DE1SoC_SevenSeg_Write function you created earlier
     // to set the bits of the display.
+	if(value <= 15){
+		//translate unsigned int value to the relevant bit-mapping value
+		DE1SoC_SevenSeg_Write(display, table[value]);
+	}else{
+		//if value out of range, illuminating segment 6 only
+		DE1SoC_SevenSeg_Write(display, 64);
+	}
 }
 
 void DE1SoC_SevenSeg_SetDoubleHex(unsigned int display, unsigned int value) {
