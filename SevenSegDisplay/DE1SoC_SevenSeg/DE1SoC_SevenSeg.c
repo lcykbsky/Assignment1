@@ -79,7 +79,10 @@ void DE1SoC_SevenSeg_SetDoubleDec(unsigned int display, unsigned int value) {
     // This function should show the first digit of a DECIMAL number on
     // the specified 'display', and the second digit on the display to
     // the left of the specified display.
-
+	int lo = value % 10;//get the low digit
+	int hi = value / 10;//get the high digit
+	DE1SoC_SevenSeg_Write(display++, table[lo]);
+	DE1SoC_SevenSeg_Write(display, table[hi]);
     /** Some examples:
      *
      *	  input | output | HEX(N+1) | HEX(N)
