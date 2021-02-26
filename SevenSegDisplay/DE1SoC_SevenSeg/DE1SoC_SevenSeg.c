@@ -9,9 +9,8 @@
 #include "DE1SoC_SevenSeg.h"
 
 // ToDo: Add the base addresses of the seven segment display peripherals.
-volatile unsigned char *sevenseg_base_lo_ptr = 0;
-volatile unsigned char *sevenseg_base_hi_ptr = 0;
-
+volatile unsigned char *sevenseg_base_lo_ptr = (unsigned char *)0xFF200020;
+volatile unsigned char *sevenseg_base_hi_ptr = (unsigned char *)0xFF200030;
 // There are four HEX displays attached to the low (first) address.
 #define SEVENSEG_N_DISPLAYS_LO 4
 
