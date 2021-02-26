@@ -17,6 +17,10 @@ volatile unsigned char *sevenseg_base_hi_ptr = (unsigned char *)0xFF200030;
 // There are two HEX displays attached to the high (second) address.
 #define SEVENSEG_N_DISPLAYS_HI 2
 
+//There are table of seven segment code to hexadecimal code
+int table[16] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07,
+					0x7F, 0x6F, 0x77, 0x7C, 0x39, 0x5E, 0x79, 0x71};
+
 void DE1SoC_SevenSeg_Write(unsigned int display, unsigned char value) {
     // Select between the two addresses so that the higher level functions
     // have a seamless interface.
